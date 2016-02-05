@@ -1,5 +1,6 @@
 #!/usr/bin/env python
 
+from __future__ import print_function
 import sys
 import xmlrpclib
 import json
@@ -12,7 +13,7 @@ domain_default=settings['domain_default'];
 apikey_prod=settings['apikey_prod'];
 
 if len(sys.argv) < 2:
-        print "Usage: %s alias login(default = %s) domain(default = %s)" % (sys.argv[0],login_default,domain_default);
+        print("Usage: ",sys.argv[0]," alias mailbox(default = ",mailbox_default,") domain(default = ",domain_default,")");
         exit();
 
 if len(sys.argv) == 2:
@@ -31,7 +32,7 @@ api=xmlrpclib.ServerProxy("https://rpc.gandi.net/xmlrpc/");
 
 aliases=api.domain.mailbox.info(apikey_prod,domain,mailbox)['aliases'];
 if alias in aliases:
-        print 'Alias already present';
+        print('Alias already present',file=sys.stderr);
         exit();
 
 aliases+=[alias];
