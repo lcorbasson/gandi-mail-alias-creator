@@ -1,6 +1,5 @@
 #!/usr/bin/env python
 # TODO:
-# - support adding a single destination without []
 # - check for each destination if it already exists in the list
 
 from __future__ import print_function
@@ -28,6 +27,9 @@ elif len(sys.argv) == 3:
 else:
         dest = sys.argv[2]
         domain = sys.argv[3]
+
+if not isinstance(dest, list):
+	dest = [dest]
 
 redir = sys.argv[1]
 
