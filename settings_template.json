@@ -1,6 +1,7 @@
 {
   "mailbox_default": "",
   "domain_default": "",
+  "destinations_default": [],
   "apikey_test": "",
   "apikey_prod": ""
 }
